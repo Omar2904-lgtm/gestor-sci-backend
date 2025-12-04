@@ -42,11 +42,11 @@ INSTALLED_APPS = [
 
 # 2. MIDDLEWARE (Incluye WhiteNoise)
 MIDDLEWARE = [
+    'django.middleware.common.CommonMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware', # <--- AGREGADO
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
-    'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'inventario_backend.wsgi.application'
 DATABASES = {
     'default': dj_database_url.config(
         # Render usará su DATABASE_URL, si no existe (estamos en local) usa la configuración local:
-        default='postgresql://admin_inventario:admin@127.0.0.1:5432/inventario_db',
+        default='postgresql://admin:Uq3Kk9DwFjIviLz2LrE7SsnBrDZgO5Ae@dpg-d4oer424d50c738r6upg-a.oregon-postgres.render.com/inventario_db_r90d',
         conn_max_age=600
     )
 }
@@ -104,11 +104,11 @@ AUTH_USER_MODEL = 'core.Usuario'
 # 6. CORS (CORRECCIÓN VITAL: Solo dominios, no rutas como /api)
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:4200",
-    "https://gestor-sci-frontend.vercel.app"
+    "https://gestor-sci-frontend-kappa.vercel.app"
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://gestor-sci-frontend.vercel.app",
+    "https://gestor-sci-frontend-kappa.vercel.app",
 ]
 
 # Agregamos el host de Render para que la API pueda hablar consigo misma
